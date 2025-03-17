@@ -85,7 +85,7 @@
 			height: 100%;
 			z-index: -10;
 			pointer-events: none;
-			opacity: var(--scroll);
+			opacity: var(--scroll-star);
 			transition: opacity 0.3s;
 		}
 
@@ -116,12 +116,13 @@
 		window.addEventListener('scroll', () => {
 			const scrollPercentage = Math.min(window.scrollY / (document.documentElement.scrollHeight - window.innerHeight - 400), 1);
 			document.documentElement.style.setProperty('--scroll', scrollPercentage);
+			document.documentElement.style.setProperty('--scroll-star', (scrollPercentage-0.5)*2);
 		});
 
 		// Create stars
 		function createStars() {
 			const container = document.getElementById('stars-container');
-			for (let i = 0; i < 100; i++) {
+			for (let i = 0; i < 300; i++) {
 				const star = document.createElement('div');
 				star.className = 'star';
 				star.style.left = Math.random() * 100 + '%';
@@ -149,7 +150,7 @@
 		<a
 			href="https://www.cs.purdue.edu/news/articles/2023/purdues-b01lers-win-raymond-james-ctf-2023-earn-10k-prize.html"><em
 				style="padding: 20px">B01lers
-				Figure 1. winning first place at Raymond James CTF 2023</em></a>
+				Figure 1. Winning first place at Raymond James CTF 2023</em></a>
 	</div>
 	<div id="main-body">
 		<p>B01lers, formally the Purdue Capture the Flag team, is a long-standing club at Purdue.
@@ -221,6 +222,12 @@
 		<p><em>Figure 9. Snowy night sky after the meeting</em></p>
 		<p>After a long day of classes and a joyful club session, only the snowy night sky greets everyone.
 			With their newly learned knowledge, members leave the club room, ready to tackle the next challenge.
+		</p>
+	</div>
+	<div id="main-body" style="border-top: 2px solid #fff; margin-top: 2em; padding-top: 1em;">
+		<h2 style="color: #fff;">References</h2>
+		<p style="text-indent: -2em; padding-left: 2em;">
+			CyberSeek. (n.d.). <em>Cybersecurity Supply/Demand Heat Map.</em> Retrieved February 16, 2025, from https://www.cyberseek.org/heatmap.html
 		</p>
 	</div>
 	<div id="stars-container"></div>
